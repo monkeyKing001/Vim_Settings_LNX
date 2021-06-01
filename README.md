@@ -1,7 +1,7 @@
 # Vim_Settings_LNX
 
 
-##checked working 01. 06. '21
+## checked working 01. 06. '21
 
 ## setting 
 
@@ -20,5 +20,5 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-##
+## 
 출처: https://redcoder.tistory.com/114 [로재의 개발 일기]
