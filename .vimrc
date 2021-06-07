@@ -1,4 +1,4 @@
-set number
+set number relativenumber
 syntax on
 set ai "set auto indentin
 set showmatch
@@ -17,6 +17,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "추가
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 
 call vundle#end() "required
@@ -28,5 +31,17 @@ if &term =~ '256color'
 	  "     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
 	       set t_ut=
 	       endif
-	
-	
+
+
+"Keymapping
+let mapleader=","
+nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
+
+"NERDTree
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+nnoremap <C-F> :NERDTreeFind<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
