@@ -32,10 +32,19 @@ if &term =~ '256color'
 	       set t_ut=
 	       endif
 
-
 "Keymapping
 let mapleader=","
 nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
+
+" Key Setting - resize windows
+nnoremap <silent> <Leader>= :exe "resize +3"<CR>
+nnoremap <silent> <Leader>- :exe "resize -3"<CR>
+nnoremap <silent> <Leader>] :exe "vertical resize +8"<CR>
+nnoremap <silent> <Leader>[ :exe "vertical resize -8"<CR>
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>_ :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>} :exe "vertical resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>{ :exe "vertical resize " . (winheight(0) * 2/3)<CR>
 
 "NERDTree
 noremap <C-h> <C-w>h
