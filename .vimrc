@@ -20,7 +20,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
+Plugin 'eslint/eslint'
 
 call vundle#end() "required
 filetype plugin indent on
@@ -31,6 +31,8 @@ if &term =~ '256color'
 	  "     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
 	       set t_ut=
 	       endif
+"etc
+set clipboard=unnamed
 
 "Keymapping
 let mapleader=","
@@ -54,3 +56,7 @@ noremap <C-l> <C-w>l
 
 nnoremap <C-F> :NERDTreeFind<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
+
+"Javascript
+
+
