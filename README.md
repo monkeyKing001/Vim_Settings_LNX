@@ -12,7 +12,7 @@ Using non-POSIX shells, such as the popular Fish shell, requires additional setu
 
 ### Set up Vundle:
 
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
 ### Configure Plugins:
 
