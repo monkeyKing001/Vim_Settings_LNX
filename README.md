@@ -31,11 +31,11 @@ $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ### 1-2. Download .vimrc file
 For Mac OS
 ```bash
-$ curl https://raw.githubusercontent.com/LeeSH825/vim-_configs/master/.vimrc -o ~/.vimrc
+$ curl https://raw.githubusercontent.com/monkeyKing001/Vim_Settings_LNX/main/.vimrc -o ~/.vimrc
 ```
 For Linux
 ```bash
-$ wget https://raw.githubusercontent.com/LeeSH825/vim-_configs/master/.vimrc -o ~/.vimrc
+$ wget https://raw.githubusercontent.com/monkeyKing001/Vim_Settings_LNX/main/.vimrc -o ~/.vimrc
 ```
 ### 1-3. Install Plugins
 ```bash

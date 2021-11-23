@@ -45,6 +45,7 @@ Plugin 'alexandregv/norminette-vim'
 call vundle#end() "required
 filetype plugin indent on
 
+"Color Theme
 if &term =~ '256color'
 	  " disable Background Color Erase (BCE) so that color schemes
 	  "   " render properly when inside 256-color tmux and GNU screen.
@@ -54,7 +55,14 @@ if &term =~ '256color'
 "etc
 set clipboard=unnamed
 
-"Keymapping
+"airline
+let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
+let g:airline_theme= 'badwolf'
+set laststatus=2 " turn on bottom bar
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+
+"Keymapping ',' = <Leader>
 let mapleader=","
 nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
 
@@ -68,7 +76,18 @@ nnoremap <silent> <Leader>_ :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>} :exe "vertical resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>{ :exe "vertical resize " . (winheight(0) * 2/3)<CR>
 
-"NERDTree
+"airline keymapping
+" 다음 버퍼로 이동
+nmap <leader>. :bnext<CR>
+"
+" " 이전 버퍼로 이동
+nmap <leader>m :bprevious<CR>
+"
+" 현재 버퍼를 닫고 이전 버퍼로 이동
+" 탭 닫기 단축키를 대체한다.
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+"NERDTree keymapping
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -88,14 +107,15 @@ let g:hdr42mail = 'dokwak@student.42seoul.kr'
 "42 Norminette
 
 " Enable norminette-vim (and gcc)
-let g:syntastic_c_checkers = ['norminette', 'gcc']
+let g:syntastic_c_checkers = ['norminette', 'gcc'] "norminette + gcc
+" let g:syntastic_c_checkers = ['gcc'] "gcc
 let g:syntastic_aggregate_errors = 1
 
 " Set the path to norminette (do no set if using norminette of 42 mac)
 " let g:syntastic_c_norminette_exec = '~/.norminette/norminette.rb'
 let g:syntastic_c_norminette_exec = 'norminette'
 " Support headers (.h)
-let g:c_syntax_for_h = 1
+let g:c_syntax_for_h = 0
 let g:syntastic_c_include_dirs = ['include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include']
 
 " Pass custom arguments to norminette (this one ignores 42header)
@@ -111,4 +131,4 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
 " Skip check when closing
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1

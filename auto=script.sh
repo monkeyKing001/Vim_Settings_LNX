@@ -6,4 +6,4 @@ else
 	wget https://raw.githubusercontent.com/monkeyKing001/Vim_Settings_LNX/main/.vimrc -o ~/.vimrc
 fi
 vim -c "source %" -c "PluginInstall" -c "q" -c "q"
-  # https://raw.githubusercontent.com/monkeyKing001/Vim_Settings_LNX/main/.vimrvc
+  # https://raw.githubusercontent.com/monkeyKing001/Vim_Settings_LNX/main/.vimrc
