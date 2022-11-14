@@ -26,9 +26,6 @@ colorscheme koehler
 set mouse=a
 filetype off "required
 
-"#################################################
-"########     vundle, plugin install      ########
-"#################################################
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -59,26 +56,17 @@ if &term =~ '256color'
 set clipboard=unnamed
 
 "airline
-"#################################################
-"########              airline            ########
-"#################################################
 let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
 let g:airline_theme= 'badwolf'
 set laststatus=2 " turn on bottom bar
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 
-"#################################################
-"########    Keymapping ',' = <Leader>    ########
-"#################################################
+"Keymapping ',' = <Leader>
 let mapleader=","
-
-"open VIMRC 
 nnoremap <Leader>rc :rightbelow vnew $MYVIMRC<CR>
 
-"#################################################
-"########          resize window          ########
-"#################################################
+" Key Setting - resize windows
 nnoremap <silent> <Leader>= :exe "resize +3"<CR>
 nnoremap <silent> <Leader>- :exe "resize -3"<CR>
 nnoremap <silent> <Leader>] :exe "vertical resize +8"<CR>
@@ -88,18 +76,9 @@ nnoremap <silent> <Leader>_ :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>} :exe "vertical resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>{ :exe "vertical resize " . (winheight(0) * 2/3)<CR>
 
-"#################################################
-"########            airline              ########
-"#################################################
 "airline keymapping
 " 다음 버퍼로 이동
 nmap <leader>. :bnext<CR>
-nmap <ESC>j j
-nmap <ESC>k k
-nmap <ESC>h h
-nmap <ESC>l l
-nmap <C-o> o
-nmap <C-p> p
 "
 " " 이전 버퍼로 이동
 nmap <leader>m :bprevious<CR>
@@ -107,12 +86,8 @@ nmap <leader>m :bprevious<CR>
 " 현재 버퍼를 닫고 이전 버퍼로 이동
 " 탭 닫기 단축키를 대체한다.
 nmap <leader>bq :bp <BAR> bd #<CR>
-:autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
-:autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.c
 
-"#################################################
-"########           Nerdtree              ########
-"#################################################
+"NERDTree keymapping
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -121,35 +96,19 @@ noremap <C-l> <C-w>l
 nnoremap <C-F> :NERDTreeFind<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
-"#################################################
-"########            ctags                ########
-"#################################################
-"to previous tag
-nnoremap <C-[> <C-o>
-set tags=./tags,tags                "find tags in current dir
-nmap <F12> :stj <c-r><c-w><CR>
+"Javascript
 
-"#################################################
-"########          Javascript          ###########
-"#################################################
-
-"#################################################
-"########          42 Header           ###########
-"#################################################
 "42_Header
 nmap <f1> :FortyTwoHeader<CR>
 autocmd FileType htmldjango let b:fortytwoheader_delimiters=['{#', '#}', '*']
 let g:hd42user = 'dokwak'
 let g:hdr42mail = 'dokwak@student.42seoul.kr'
 
-"#################################################
-"########         42 norminette           ########
-"#################################################
+"42 Norminette
 
 " Enable norminette-vim (and gcc)
-" let g:syntastic_c_checkers = ['norminette', 'gcc', 'g++ -std=c++11'] "norminette + gcc
-let g:syntastic_c_checkers = ['gcc', 'g++ -std=c++11'] "norminette + gcc
-" let g:syntastic_c_checkers = ['g++ -std=c++11'] "norminette + gcc
+let g:syntastic_c_checkers = ['norminette', 'gcc'] "norminette + gcc
+" let g:syntastic_c_checkers = ['gcc'] "gcc
 let g:syntastic_aggregate_errors = 1
 
 " Set the path to norminette (do no set if using norminette of 42 mac)
