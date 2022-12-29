@@ -1,4 +1,9 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <iostream>
+#include <cmath> 
+#include <algorithm>
+#include <climits>
+
 using namespace std;
 
 int	main(int argc, char **argv)
