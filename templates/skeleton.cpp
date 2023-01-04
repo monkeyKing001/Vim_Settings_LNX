@@ -3,6 +3,8 @@
 #include <cmath> 
 #include <algorithm>
 #include <climits>
+#include <map>
+#include <string>
 
 using namespace std;
 

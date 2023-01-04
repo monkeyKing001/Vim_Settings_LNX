@@ -107,6 +107,7 @@ Plug 'preservim/tagbar'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 call plug#end()
 
 ""#################################################
@@ -274,7 +275,7 @@ endfunction
 "########            snippets             ########
 "#################################################
 
-let g:UltiSnipsExpandTrigger="<Tab>"
+"let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsEditSplit="vertical"
@@ -343,3 +344,4 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 1 
 :autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.c
 :autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
+:autocmd BufNewFile Makefile 0r ~/.vim/templates/skeleton_makefile

@@ -244,27 +244,9 @@ let g:tagbar_height = 20
 "#################################################
 "########            coc map              ########
 "#################################################
-" Use tab for trigger completion with characters ahead and navigate
-" NOTE: There's always complete item selected by default, you may want to enable
-" no select by `"suggest.noselect": true` in your configuration file
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config
+inoremap <silent><expr> <Tab>
+     \ pumvisible() ? "\<C-n>" : "\<TAB>"
 
-"next candidates
-inoremap <silent><expr> <C-j>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      "\ CheckBackspace() ? "\<Tab>" : 
-      \ coc#refresh()
-
-"previous candidates
-inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-"Coc completion
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
@@ -292,9 +274,9 @@ endfunction
 "########            snippets             ########
 "#################################################
 
-"let g:UltiSnipsExpandTrigger="<CR>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/UltiSnips']
 "let g:UltiSnipsSnippetDirectories = ['UltiSnips']
@@ -327,10 +309,10 @@ let g:hdr42mail = 'dokwak@student.42seoul.kr'
 
 " Enable norminette-vim (and gcc)
 " let g:syntastic_c_checkers = ['norminette', 'gcc', 'g++'] "norminette + gcc
-" let g:syntastic_c_checkers = ['g++', 'gcc']
-" let g:syntastic_aggregate_errors = 1
+let g:syntastic_c_checkers = ['g++', 'gcc']
+let g:syntastic_aggregate_errors = 1
 " 1998
-" let g:syntastic_cpp_compiler_options = ' -std=c++98 -stdlib=libc++'
+let g:syntastic_cpp_compiler_options = ' -std=c++98 -stdlib=libc++'
 " 2017
 "let g:syntastic_cpp_compiler_options = ' -std=c++17 -stdlib=libc++'
 
@@ -348,13 +330,13 @@ let g:hdr42mail = 'dokwak@student.42seoul.kr'
 "let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
 
 " Check errors when opening a file (disable to speed up startup time)
-" let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 1
 
 " Enable error list
- let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_always_populate_loc_list = 1
 
 " Automatically open error list
-" let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 
 
 " Skip check when closing

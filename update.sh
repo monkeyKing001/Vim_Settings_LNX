@@ -4,7 +4,7 @@ month=$(date +%m)
 day=$(date +%d)
 
 cp ./.vimrc ./backup_vimrc/.vimrc-${year}-${month}-${day}
-mv ~/.vimrc ./vimrc
+cp ~/.vimrc ./.vimrc
 
 git add .
 git commit -m "${year}-${month}-${day}"
