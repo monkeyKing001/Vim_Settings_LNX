@@ -207,7 +207,6 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 "#################################################
 autocmd vimenter * NERDTree
 autocmd vimenter * Tagbar
-"autocmd VimEnter * botright vsplit
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -253,7 +252,6 @@ let g:tagbar_height = 20
 " other plugin before putting this into your config
 
 "next candidates
-let g:clangd_args = ['-I/Library/Developer/CommandLineTools/usr/include/bits']
 inoremap <silent><expr> <C-j>
       \ coc#pum#visible() ? coc#pum#next(1) :
       "\ CheckBackspace() ? "\<Tab>" : 
@@ -328,6 +326,19 @@ let g:hd42user = 'dokwak'
 let g:hdr42mail = 'dokwak@student.42seoul.kr'
 
 "#################################################
+"########        syntastic_checker        ########
+"#################################################
+
+" Enable norminette-vim (and gcc)
+" let g:syntastic_c_checkers = ['norminette', 'gcc', 'g++'] "norminette + gcc
+let g:syntastic_c_checkers = ['g++', 'gcc']
+let g:syntastic_aggregate_errors = 1
+" 1998
+let g:syntastic_cpp_compiler_options = ' -std=c++98 -stdlib=libc++'
+" 2017
+"let g:syntastic_cpp_compiler_options = ' -std=c++17 -stdlib=libc++'
+
+"#################################################
 "########         42 norminette           ########
 "#################################################
 " Set the path to norminette (do no set if using norminette of 42 mac)
@@ -349,49 +360,9 @@ let g:syntastic_always_populate_loc_list = 1
 " Automatically open error list
 let g:syntastic_auto_loc_list = 1
 
-"#################################################
-"########      syntastic_checker_gcc      ########
-"#################################################
-
-" Enable norminette-vim (and gcc)
-" let g:syntastic_c_checkers = ['norminette', 'gcc', 'g++'] "norminette + gcc
-let g:syntastic_c_checkers = ['g++', 'gcc']
-
-let g:syntastic_aggregate_errors = 1
-" 1998
-"let g:syntastic_cpp_compiler_options = ' -std=c++98 -stdlib=libc++'
-" 2017
-let g:syntastic_cpp_compiler_options = ' -std=c++17 -stdlib=libc++'
-
-""#################################################
-""########     syntastic_checker_clang     ########
-""#################################################
-""For syntastic
-"set laststatus=2
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"let g:syntastic_error_symbol = '✗'
-"let g:syntastic_warning_symbol = '⚠'
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"
-"let g:syntastic_c_checkers = [ 'clang_tidy', 'clang' ]
-"let g:syntastic_c_compiler = 'clang'
-"let g:syntastic_c_clang_args = '-Wall -Werror -Wextra -Iinclude'
-"let g:syntastic_c_clang_tidy_args = '-checks=*'
-"let g:syntastic_c_compiler_options = '-Wall -Iinclude'
-"let g:syntastic_c_include_dirs = [ '../include', 'include' ]
-"let g:syntastic_c_clang_tidy_post_args = ""
-
-
 
 " Skip check when closing
 let g:syntastic_check_on_wq = 1 
 :autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.c
 :autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
-:autocmd BufNewFile *.java 0r ~/.vim/templates/skeleton.java
 :autocmd BufNewFile Makefile 0r ~/.vim/templates/skeleton_makefile
